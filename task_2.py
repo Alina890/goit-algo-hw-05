@@ -2,7 +2,7 @@ from typing import Callable
 import re
 
 def generator_numbers(text: str):
-    nums = r'\b\d+\.\d+\b'
+    nums = r'(?:(?<=\s)|(?<=^))\d+\.\d+(?=\s|$)'
     for math in re.finditer(nums, text):
         yield float(math.group())
 
